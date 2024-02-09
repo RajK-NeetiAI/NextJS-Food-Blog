@@ -9,7 +9,7 @@ import logoImage from "@/assets/icons/logo.png";
 const linksData = [
     {
         link: '/meal',
-        linkName: 'Brows Meals'
+        linkName: 'Browse Meals'
     },
     {
         link: '/community',
@@ -31,6 +31,7 @@ export default function MainHeader() {
                     <Link href={"/"}>
                         Nextlevel Food
                     </Link>
+
                     <Link href={"/"}>
                         <Image
                             src={logoImage}
@@ -48,7 +49,7 @@ export default function MainHeader() {
                                     <Link href={link.link} className={
                                         pathName.startsWith(link.link)
                                             ? "bg-gray-500 hover:bg-gray-600 active:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-300 text-white"
-                                            : "hover:bg-gray-600 active:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-300 text-black"
+                                            : "hover:bg-gray-600 active:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-300 text-black hover:text-white"
                                     }>{link.linkName}</Link>
                                 </li>
                             ))}

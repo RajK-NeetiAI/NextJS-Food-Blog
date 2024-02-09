@@ -1,11 +1,11 @@
 import ImageSlideShow from "@/components/ImageSlideShow";
 
-import initData from "@/lib/seed";
+// import initData from "@/lib/seed";
 
 export default async function Home() {
   // Run this line once to create dummy data in the DB.
-  await initData();
-  
+  // await initData();
+
   return (
     <>
       <div className="flex items-center justify-center">

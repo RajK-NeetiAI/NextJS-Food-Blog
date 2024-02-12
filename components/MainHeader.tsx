@@ -25,13 +25,14 @@ export default function MainHeader() {
     const pathName = usePathname();
 
     return (
-        <>
-            <div className="grid grid-rows-1 grid-flow-col gap-4 items-center justify-around m-4 font-bold">
-                <div>
+        <div className="m-2 flex justify-around font-bold">
+            <div className="p-2">
+                <div className="text-center">
                     <Link href={"/"}>
                         Nextlevel Food
                     </Link>
-
+                </div>
+                <div className="pl-6">
                     <Link href={"/"}>
                         <Image
                             src={logoImage}
@@ -41,22 +42,24 @@ export default function MainHeader() {
                         ></Image>
                     </Link>
                 </div>
+            </div>
+            <div>
                 <div>
-                    <nav>
-                        <ul>
-                            {Array.from(linksData).map((link, index) => (
-                                <li key={index}>
-                                    <Link href={link.link} className={
+                    <ul>
+                        {Array.from(linksData).map((link, index) => (
+                            <li key={index}>
+                                <Link href={link.link}>
+                                    <div className={
                                         pathName.startsWith(link.link)
-                                            ? "bg-gray-500 hover:bg-gray-600 active:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-300 text-white"
-                                            : "hover:bg-gray-600 active:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-300 text-black hover:text-white"
-                                    }>{link.linkName}</Link>
-                                </li>
-                            ))}
-                        </ul>
-                    </nav>
+                                            ? "rounded-md w-fit p-2 bg-gray-500 active:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-300 text-white"
+                                            : "rounded-md w-fit p-2 hover:bg-gray-600 active:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-300 text-black hover:text-white"
+                                    }>{link.linkName}</div>
+                                </Link>
+                            </li>
+                        ))}
+                    </ul>
                 </div>
             </div>
-        </>
+        </div>
     );
 };

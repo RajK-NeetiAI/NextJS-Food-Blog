@@ -34,9 +34,11 @@ export default async function MealDetailPage({ params }: { params: { id: string 
                     ))}
                 </ul>
             </div>
-            <div>
-                <Link className="m-8 text-blue-900" href={"/meal"}>Back to all meals</Link>
-            </div>
+            <Link href={"/meal"}>
+                <div className="bg-slate-800 w-fit p-2 m-2 rounded-md hover:bg-slate-400 text-white">
+                    Back to all meals
+                </div>
+            </Link>
         </div>
     );
 };

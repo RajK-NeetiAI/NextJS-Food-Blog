@@ -8,7 +8,7 @@ export default async function MealPage() {
     const mealIteams = await fetchAllMealItems();
     const shuffledMealIteams = mealIteams.sort(() => Math.random() - 0.5);
     return (
-        <div className="flex gap-4 text-center m-4">
+        <div className="flex flex-row gap-4 text-center w-full">
             {
                 Array.from(shuffledMealIteams).map((meal, index) => (
                     <div key={index}>
@@ -22,7 +22,7 @@ export default async function MealPage() {
                             </CardContent>
                             <CardFooter className="justify-end">
                                 <Link className="text-blue-500" href={`/meal/${meal.id}`}>
-                                    <div className="bg-slate-800 p-2 rounded-md text-white hover:bg-slate-400">
+                                    <div className="bg-slate-600 p-2 rounded-md text-white hover:bg-slate-300 hover:text-black font-extrabold">
                                         Read more...
                                     </div>
                                 </Link>

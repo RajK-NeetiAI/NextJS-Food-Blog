@@ -21,26 +21,20 @@ const images = [imageOne, imageTwo, imageThree, imageFour, imageFive, imageSix, 
 
 export default function ImageSlideShow() {
     return (
-        <>
-            <Carousel opts={{ align: "start", loop: true }} className="flex w-full max-w-xs" >
-                <CarouselContent>
-                    {Array.from(images).map((image, index) => (
-                        <CarouselItem key={index}>
-                            <div className="p-1">
-                                <Card>
-                                    <CardContent className="flex aspect-square items-center justify-center p-6">
-                                        <span className="text-4xl font-semibold">
-                                            <Image src={image} alt="" width={256} height={256}></Image>
-                                        </span>
-                                    </CardContent>
-                                </Card>
-                            </div>
-                        </CarouselItem>
-                    ))}
-                </CarouselContent>
-                <CarouselPrevious></CarouselPrevious>
-                <CarouselNext></CarouselNext>
-            </Carousel>
-        </>
+        <Carousel opts={{ align: "start", loop: true }} className="w-full max-w-xs">
+            <CarouselContent>
+                {Array.from(images).map((image, index) => (
+                    <CarouselItem key={index}>
+                        <Card className="border-slate-300">
+                            <CardContent className="bg-slate-300 flex aspect-square items-center justify-center">
+                                <Image className="rounded-lg" src={image} alt="" width={512} height={512}></Image>
+                            </CardContent>
+                        </Card>
+                    </CarouselItem>
+                ))}
+            </CarouselContent>
+            <CarouselPrevious></CarouselPrevious>
+            <CarouselNext></CarouselNext>
+        </Carousel>
     );
 };

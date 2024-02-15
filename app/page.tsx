@@ -7,16 +7,14 @@ export default async function Home() {
   // await initData();
 
   return (
-    <>
-      <div className="flex items-center justify-center">
-        <div className="m-12 font-bold">
-          <p>Nextlevel Food for the Nextlevel Foodies.</p>
-          <p>Share your Food and Taste from all over the world.</p>
-        </div>
-        <div className="m-12">
-          <ImageSlideShow></ImageSlideShow>
-        </div>
+    <div className="flex justify-evenly items-center text-justify font-extrabold">
+      <div>
+        <p>Nextlevel Food for the Nextlevel Foodies.</p>
+        <p>Share your Food and Taste from all over the world.</p>
       </div>
-    </>
+      <div className="mt-8">
+        <ImageSlideShow></ImageSlideShow>
+      </div>
+    </div>
   );
 };

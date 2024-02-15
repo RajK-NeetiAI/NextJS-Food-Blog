@@ -19,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={cn(inter.className)}>
+      <body className={cn(inter.className, "bg-slate-300")}>
         <MainHeader></MainHeader>
         {children}
       </body>

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from 'next/image';
 import { usePathname } from "next/navigation";
+import { cn } from "@/lib/utils";
 
 import logoImage from "@/assets/icons/logo.png";
 
@@ -25,40 +26,29 @@ export default function MainHeader() {
     const pathName = usePathname();
 
     return (
-        <div className="m-2 flex justify-around font-bold">
-            <div className="p-2">
-                <div className="text-center">
-                    <Link href={"/"}>
+        <div className="flex justify-around bg-slate-300 p-2">
+            <Link href={"/"}>
+                <div className="flex flex-col justify-center items-center font-extrabold bg-slate-600 text-white p-1 rounded-lg">
+                    <div className="">
                         Nextlevel Food
+                    </div>
+                    <div className="">
+                        <Image src={logoImage.src} alt={"Nextlevel Food"} width={64} height={64}></Image>
+                    </div>
+                </div>
+            </Link>
+            <div className="flex flex-col justify-center font-extrabold text-center">
+                {Array.from(linksData).map((link, index) => (
+                    <Link key={index} href={link.link}>
+                        <div className={
+                            pathName.startsWith(link.link)
+                                ? cn("m-1 bg-slate-600 text-white p-1 rounded-lg shadow-lg")
+                                : cn("m-1 p-1")
+                        }>
+                            {link.linkName}
+                        </div>
                     </Link>
-                </div>
-                <div className="pl-6">
-                    <Link href={"/"}>
-                        <Image
-                            src={logoImage}
-                            alt="A plat with food on it."
-                            width={64}
-                            height={64}
-                        ></Image>
-                    </Link>
-                </div>
-            </div>
-            <div>
-                <div>
-                    <ul>
-                        {Array.from(linksData).map((link, index) => (
-                            <li key={index}>
-                                <Link href={link.link}>
-                                    <div className={
-                                        pathName.startsWith(link.link)
-                                            ? "rounded-md w-fit p-2 bg-gray-500 active:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-300 text-white"
-                                            : "rounded-md w-fit p-2 hover:bg-gray-600 active:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-300 text-black hover:text-white"
-                                    }>{link.linkName}</div>
-                                </Link>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
+                ))}
             </div>
         </div>
     );

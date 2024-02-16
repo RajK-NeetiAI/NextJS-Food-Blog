@@ -37,3 +37,4 @@ next-env.d.ts
 
 .env
 prisma/migrations/
+emerald-griffin-407812-d6735d932119.json
